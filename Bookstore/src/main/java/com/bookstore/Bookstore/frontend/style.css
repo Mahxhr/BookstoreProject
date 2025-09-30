@@ -1,0 +1,289 @@
+/* Global Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+body { background: linear-gradient(120deg, #e0f7fa, #ffe0b2); min-height: 100vh; color: #333; }
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+header h1 { font-size: 2rem; font-weight: 700; }
+
+.header-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-right input,
+.header-right select {
+  padding: 8px 12px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+header button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  background: #ff6b6b;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+header button:hover { background: #ff4757; transform: scale(1.05); }
+
+/* Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 30px 40px;
+}
+
+/* Book Card */
+.book-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.book-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.book-card img:hover { transform: scale(1.05); }
+
+.book-card .content { padding: 20px; }
+.book-card h3 { font-size: 1.4rem; margin-bottom: 8px; color: #2575fc; }
+.book-card p { font-size: 0.95rem; margin-bottom: 5px; color: #555; }
+
+.book-card .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.book-card .actions button {
+  padding: 8px 15px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  color: white;
+}
+.book-card .edit-btn { background: #ffa502; }
+.book-card .edit-btn:hover { background: #eccc68; }
+.book-card .delete-btn { background: #ff4757; }
+.book-card .delete-btn:hover { background: #ff6b81; }
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 120px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  animation: fadeIn 0.4s;
+}
+
+.modal-content {
+  background: #f9f9f9;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: slideDown 0.4s;
+}
+.modal-content input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+.modal-content input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37,117,252,0.3);
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}
+#saveBookBtn { background: #2575fc; }
+#saveBookBtn:hover { background: #1458a0; transform: scale(1.05); }
+#cancelBtn { background: #ff6b6b; }
+#cancelBtn:hover { background: #ff4757; transform: scale(1.05); }
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #555;
+}
+.close:hover { color: #ff4757; }
+
+/* Animations */
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+@keyframes slideDown { from {transform: translateY(-50px); opacity:0} to {transform: translateY(0); opacity:1} }
+
+/* Responsive */
+@media(max-width: 768px){
+  header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .header-right { width: 100%; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+}
+/* Form Group with Floating Labels */
+.form-group {
+  position: relative;
+  margin: 15px 0;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px 15px 15px 40px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37,117,252,0.3);
+}
+
+.form-group label {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f9f9f9;
+  padding: 0 5px;
+  color: #999;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 20px;
+  font-size: 0.8rem;
+  color: #2575fc;
+}
+
+/* Modal Content Updates */
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #2575fc;
+  text-align: center;
+}
+
+/* Buttons */
+#saveBookBtn {
+  background: #2575fc;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+#saveBookBtn:hover {
+  background: #1458a0;
+  transform: scale(1.05);
+}
+
+#cancelBtn {
+  background: #ff6b6b;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+#cancelBtn:hover {
+  background: #ff4757;
+  transform: scale(1.05);
+}
+/* Modal Gradient Background */
+.modal-content {
+  background: linear-gradient(145deg, #ffffff, #e0f7fa);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* Form Inputs with icons */
+.form-group input {
+  padding-left: 40px;
+  font-size: 1rem;
+}
+.form-group label {
+  left: 40px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+#saveBookBtn, #cancelBtn {
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 12px 25px;
+  transition: 0.3s;
+}
+
+/* Header Gradient */
+header {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+}
+
+/* Book Cards */
+.book-card {
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.book-card h3 { color: #6a11cb; }
+.book-card .edit-btn { background: #ff9f1c; }
+.book-card .delete-btn { background: #ff4757; }

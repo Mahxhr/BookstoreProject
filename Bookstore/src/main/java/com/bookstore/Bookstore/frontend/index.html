@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 My Bookstore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>📖 BookHaven</h1>
+    <div class="header-right">
+        <input type="text" id="searchInput" placeholder="🔍 Search by title or author">
+        <select id="categoryFilter">
+            <option value="">All Categories</option>
+        </select>
+        <select id="sortPrice">
+            <option value="">Sort by Price</option>
+            <option value="asc">Low → High</option>
+            <option value="desc">High → Low</option>
+        </select>
+        <button id="addBookBtn">+ Add Book</button>
+    </div>
+</header>
+
+<main id="bookList" class="grid-container"></main>
+
+<!-- Modal Form -->
+<div id="bookModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Add Book</h2>
+
+        <div class="form-group">
+            <input type="text" id="bookTitle" required placeholder=" ">
+            <label for="bookTitle">📚 Title</label>
+        </div>
+        <div class="form-group">
+            <input type="text" id="bookAuthor" required placeholder=" ">
+            <label for="bookAuthor">🖋 Author</label>
+        </div>
+        <div class="form-group">
+            <input type="text" id="bookCategory" required placeholder=" ">
+            <label for="bookCategory">🏷 Category</label>
+        </div>
+        <div class="form-group">
+            <input type="text" id="bookDescription" placeholder=" ">
+            <label for="bookDescription">📝 Description</label>
+        </div>
+        <div class="form-group">
+            <input type="number" id="bookPrice" required placeholder=" ">
+            <label for="bookPrice">💰 Price</label>
+        </div>
+        <div class="form-group">
+            <input type="text" id="bookImageUrl" placeholder=" ">
+            <label for="bookImageUrl">🖼 Image URL</label>
+        </div>
+
+        <div class="modal-buttons">
+            <button id="saveBookBtn">Save</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
